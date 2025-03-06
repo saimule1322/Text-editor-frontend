@@ -1,10 +1,9 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import ReactQuill from "react-quill";
-import { saveAs } from "file-saver";
 import { Document, Packer, Paragraph } from "docx";
 import "react-quill/dist/quill.snow.css";
 import { useNavigate } from "react-router-dom";
-import customfetch from '../Utils/Customfetch.js';
+import customfetch from '../Utils/Customfetch.ts';
 import Cookies from 'js-cookie';
 
 

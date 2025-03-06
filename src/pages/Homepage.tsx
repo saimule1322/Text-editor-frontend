@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
-import {image1 } from '../assets'
+import image1 from '../assets/Best-Code-and-Text-Editors.png';
 
 const Homepage: React.FC = () => {
   return (
