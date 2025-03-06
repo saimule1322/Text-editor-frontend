@@ -19,6 +19,7 @@ const LoginPage :React.FC= () => {
 
   const Handlelogin =async  (e: { preventDefault: () => void; }) => {
     e.preventDefault();
+    setisLoading(true)
     if (!email ) {
       setError('Please fill in both fields.');
       return;
@@ -27,7 +28,9 @@ const LoginPage :React.FC= () => {
 
     console.log("response",response)
     setUser(response.data); // Store user data globally in Zustand
-    navigate('/Text-editor')
+    setisLoading(false)
+
+    navigate('/Editor')
     return response.data;
 
   };
