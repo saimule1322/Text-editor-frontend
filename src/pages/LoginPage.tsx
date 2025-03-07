@@ -12,7 +12,7 @@ const LoginPage :React.FC= () => {
 
 
   const loginWithGoogle = () => {
-    window.location.href = "http://localhost:5000/auth/google";
+    window.location.href = "https://text-editor-backend-7dv7.onrender.com/auth/google";
   };
 
  
@@ -24,7 +24,7 @@ const LoginPage :React.FC= () => {
       setError('Please fill in both fields.');
       return;
     }
-    const response = await customfetch.post('/login', { email });
+    const response = await customfetch.post('/api/login', { email });
 
     console.log("response",response)
     setUser(response.data); // Store user data globally in Zustand
