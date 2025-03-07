@@ -13,6 +13,8 @@ const TexteditorPage = () => {
   const [files, setFiles] = useState<any[]>([]);
   const [title, setHeading] = useState("");
   const [saveTriggered, setSaveTriggered] = useState(false);
+  const [googleId, setgoogleId] = useState("");
+  
   const navigate = useNavigate()
 
   const [user, setUser] = useState({
@@ -23,22 +25,23 @@ const TexteditorPage = () => {
   });
   const [loading, setLoading] = useState(true); // Track loading state
   const [error, setError] = useState(""); // To capture any error
-  // const googleId = Cookies.get('googleId');
-  // if (!googleId) {
-  //   navigate('/Login')
-  // } 
 
-const googleId = localStorage.getItem('googleId'); // This can be 'string | null'
-
-
-      if (googleId) {
+  
+  const Id = Cookies.get('googleId');
+  if (googleId) {
+    setgoogleId(Id)
+  } else{
+       const Ids = localStorage.getItem('googleId'); // This can be 'string | null'
+    
+    if (Ids) {
+        setgoogleId(Id)
         console.log('Google ID:', googleId);
     } else {
       console.log('No user found, redirecting to login...');
       navigate('/Login'); // Redirect to login page if no user is found
     }
-
-  
+    
+  } 
 
   useLayoutEffect(() => {
     console.log("cookie",googleId)
