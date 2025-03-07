@@ -28,10 +28,10 @@ const TexteditorPage = () => {
   //   navigate('/Login')
   // } 
 
-const users = JSON.parse(localStorage.getItem('user')); // This can be 'string | null'
+const users = localStorage.getItem('user'); // This can be 'string | null'
   
-
-      const googleId = users?.googleId;
+const ids = JSON.parse(users)
+      const googleId = ids?.googleId;
 
       if (googleId) {
         console.log('Google ID:', googleId);
