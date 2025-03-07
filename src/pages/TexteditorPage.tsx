@@ -4,6 +4,7 @@ import { Document, Packer, Paragraph } from "docx";
 import "react-quill/dist/quill.snow.css";
 import { useNavigate } from "react-router-dom";
 import customfetch from '../Utils/Customfetch.ts';
+import Cookies from 'js-cookie';
 
 
 
@@ -27,10 +28,10 @@ const TexteditorPage = () => {
   //   navigate('/Login')
   // } 
 
-const user = localStorage.getItem('user'); // This can be 'string | null'
+const googleId = localStorage.getItem('user'); // This can be 'string | null'
 
-if (user) {
-  const parsedUser = JSON.parse(user); // 'user' is guaranteed to be a string at this point
+if (googleId) {
+  const parsedUser = JSON.parse(googleId); // 'user' is guaranteed to be a string at this point
   console.log('Logged in user:', parsedUser);
 } else {
   navigate('/Login');
