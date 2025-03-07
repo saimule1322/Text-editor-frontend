@@ -37,6 +37,7 @@ const TexteditorPage = () => {
       console.log('No user found, redirecting to login...');
        navigate('/Login'); // Redirect to login page if no user is found
     }
+  }
     
   // const Id = Cookies.get('googleId');
   // if (googleId) {
