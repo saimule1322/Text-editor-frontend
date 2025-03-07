@@ -29,6 +29,8 @@ const LoginPage :React.FC= () => {
 if (response.status === 200) {
       // Store the user data in localStorage
       localStorage.setItem('user', response.data.googleId);
+      console.log("user", response.data);
+      console.log("userId", response.data.googleId);
 
       // Set the user data globally in Zustand
       setUser(response.data);
