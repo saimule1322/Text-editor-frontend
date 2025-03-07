@@ -45,7 +45,7 @@ const googleId = localStorage.getItem('googleId'); // This can be 'string | null
     const fetchUserData = async () => {
       setLoading(true);
       try {
-        const response = await customfetch.post('/userDetails', { googleId });
+        const response = await customfetch.post('/api/userDetails', { googleId });
         console.log("User data fetched:", response.data);
         setUser(response.data.user);
         setFiles(response.data.user.notes.reverse());
@@ -66,7 +66,7 @@ const googleId = localStorage.getItem('googleId'); // This can be 'string | null
     const fetchUserNotes = async () => {
       setLoading(true);
       try {
-        const response = await customfetch.post('/files', { googleId });
+        const response = await customfetch.post('/api/files', { googleId });
         // const response = await axios.post("/userDetails", { googleId }); // Replace with your API endpoint
         console.log("User data in useeffect:", response.data);
         setFiles(response.data.user.notes.reverse());
@@ -85,7 +85,7 @@ const googleId = localStorage.getItem('googleId'); // This can be 'string | null
   
   const userLogout =async () => {
     // Implement logout functionality
-      const response = await customfetch.get('/logout');
+      const response = await customfetch.get('/api/logout');
       
           console.log("response",response)
           if (response.status === 200) {
@@ -105,7 +105,7 @@ const googleId = localStorage.getItem('googleId'); // This can be 'string | null
     
     try {
       // Send POST request using axios
-      const response = await customfetch.post('/saveNotes', {
+      const response = await customfetch.post('/api/saveNotes', {
         title,
         content,
         googleId
@@ -131,7 +131,7 @@ const googleId = localStorage.getItem('googleId'); // This can be 'string | null
   const handleDelete = async (id: any) => {
     console.log("id",`${id}`)
     try {
-      const response = await customfetch.delete(`/files/${googleId}/${id}`);
+      const response = await customfetch.delete(`/api/files/${googleId}/${id}`);
   
       if (response.status === 200) {
         setFiles(response.data.user.notes.reverse());
@@ -171,7 +171,7 @@ const googleId = localStorage.getItem('googleId'); // This can be 'string | null
     formData.append("file", new File([blob], `${title}.docx`, { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" }));
   
     try {
-      const response = await customfetch.post("/drive", formData);
+      const response = await customfetch.post("/api/drive", formData);
       if (response.status === 200) {
         alert("File uploaded successfully!");
         setContent("");
