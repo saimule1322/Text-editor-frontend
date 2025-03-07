@@ -29,8 +29,8 @@ const TexteditorPage = () => {
   // } 
 
 const users = localStorage.getItem('user'); // This can be 'string | null'
-  
-const ids = JSON.parse(users)
+  if(users){
+      const ids = JSON.parse(users)
       const googleId = ids?.googleId;
 
       if (googleId) {
@@ -39,6 +39,11 @@ const ids = JSON.parse(users)
       console.log('No user found, redirecting to login...');
       navigate('/Login'); // Redirect to login page if no user is found
     }
+  }
+  else{
+      console.log('redirecting to login...');
+    
+  }
   
 
   useLayoutEffect(() => {
