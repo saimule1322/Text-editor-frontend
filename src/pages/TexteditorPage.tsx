@@ -27,7 +27,24 @@ const TexteditorPage = () => {
   const [error, setError] = useState(""); // To capture any error
 
   
-  const Id = Cookies.get('googleId');
+  // const Id = Cookies.get('googleId');
+  // if (googleId) {
+  //   setgoogleId(Id)
+  // } else{
+  //      const Ids = localStorage.getItem('googleId'); // This can be 'string | null'
+    
+  //   if (Ids) {
+  //       setgoogleId(Id)
+  //       console.log('Google ID:', googleId);
+  //   } else {
+  //     console.log('No user found, redirecting to login...');
+  //     navigate('/Login'); // Redirect to login page if no user is found
+  //   }
+    
+  // } 
+
+  useLayoutEffect(() => {
+     const Id = Cookies.get('googleId');
   if (googleId) {
     setgoogleId(Id)
   } else{
@@ -41,9 +58,7 @@ const TexteditorPage = () => {
       navigate('/Login'); // Redirect to login page if no user is found
     }
     
-  } 
-
-  useLayoutEffect(() => {
+  }
     console.log("cookie",googleId)
     const fetchUserData = async () => {
       setLoading(true);
