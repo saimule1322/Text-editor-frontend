@@ -27,13 +27,13 @@ const TexteditorPage = () => {
   //   navigate('/Login')
   // } 
 
-  const googleId = JSON.parse(localStorage.getItem('user'));
+const user = localStorage.getItem('user'); // This can be 'string | null'
 
-if (!googleId) {
-  navigate('/Login');
+if (user) {
+  const parsedUser = JSON.parse(user); // 'user' is guaranteed to be a string at this point
+  console.log('Logged in user:', parsedUser);
 } else {
-  // Optionally, you can use the user data for something (like user profile or settings)
-  console.log('User is logged in:', user);
+  navigate('/Login');
 }
 
 
