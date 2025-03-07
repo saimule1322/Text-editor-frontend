@@ -33,12 +33,10 @@ const users = localStorage.getItem('user'); // This can be 'string | null'
 if (users) {
       const parsedUser = JSON.parse(users); // Parse user data from JSON
 
-      // Check if googleId exists on parsedUser
-      if (parsedUser && parsedUser.googleId) {
-        const googleId = parsedUser.googleId; // Safely declare and use googleId
-        console.log('Google ID:', googleId);
+      const googleId = parsedUser?.googleId;
 
-        // Do something with googleId, such as storing it or passing it around
+      if (googleId) {
+        console.log('Google ID:', googleId);
       } else {
         console.log('No Google ID found');
       }
