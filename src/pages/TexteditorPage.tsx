@@ -4,7 +4,7 @@ import { Document, Packer, Paragraph } from "docx";
 import "react-quill/dist/quill.snow.css";
 import { useNavigate } from "react-router-dom";
 import customfetch from '../Utils/Customfetch.ts';
-// import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 
 
 
@@ -13,7 +13,7 @@ const TexteditorPage = () => {
   const [files, setFiles] = useState<any[]>([]);
   const [title, setHeading] = useState("");
   const [saveTriggered, setSaveTriggered] = useState(false);
-  const [googleId, setgoogleId] = useState<any>();
+  // const [googleId, setgoogleId] = useState<any>();
   
   const navigate = useNavigate()
 
