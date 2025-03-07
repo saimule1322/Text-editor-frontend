@@ -28,10 +28,8 @@ const TexteditorPage = () => {
   //   navigate('/Login')
   // } 
 
-const users = localStorage.getItem('user'); // This can be 'string | null'
-  if(users){
-      const ids = JSON.parse(users)
-      const googleId = ids?.googleId;
+const googleId = localStorage.getItem('googleId'); // This can be 'string | null'
+
 
       if (googleId) {
         console.log('Google ID:', googleId);
@@ -39,11 +37,7 @@ const users = localStorage.getItem('user'); // This can be 'string | null'
       console.log('No user found, redirecting to login...');
       navigate('/Login'); // Redirect to login page if no user is found
     }
-  }
-  else{
-      console.log('redirecting to login...');
-    
-  }
+
   
 
   useLayoutEffect(() => {
