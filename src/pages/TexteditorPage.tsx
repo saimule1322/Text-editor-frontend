@@ -4,7 +4,7 @@ import { Document, Packer, Paragraph } from "docx";
 import "react-quill/dist/quill.snow.css";
 import { useNavigate } from "react-router-dom";
 import customfetch from '../Utils/Customfetch.ts';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 
 
 
@@ -44,21 +44,21 @@ const TexteditorPage = () => {
   // } 
 
   useLayoutEffect(() => {
-     const Id = Cookies.get('googleId');
-  if (googleId) {
-    setgoogleId(Id)
-  } else{
-       const Ids = localStorage.getItem('googleId'); // This can be 'string | null'
+     const googleId = Cookies.get('googleId');
+  // if (googleId) {
+  //   setgoogleId(Id)
+  // } else{
+  //      const Ids = localStorage.getItem('googleId'); // This can be 'string | null'
     
-    if (Ids) {
-        setgoogleId(Id)
-        console.log('Google ID:', googleId);
-    } else {
-      console.log('No user found, redirecting to login...');
-      navigate('/Login'); // Redirect to login page if no user is found
-    }
+  //   if (Ids) {
+  //       setgoogleId(Id)
+  //       console.log('Google ID:', googleId);
+  //   } else {
+  //     console.log('No user found, redirecting to login...');
+  //     navigate('/Login'); // Redirect to login page if no user is found
+  //   }
     
-  }
+  // }
     console.log("cookie",googleId)
     const fetchUserData = async () => {
       setLoading(true);
