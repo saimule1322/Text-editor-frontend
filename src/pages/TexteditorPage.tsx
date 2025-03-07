@@ -13,7 +13,7 @@ const TexteditorPage = () => {
   const [files, setFiles] = useState<any[]>([]);
   const [title, setHeading] = useState("");
   const [saveTriggered, setSaveTriggered] = useState(false);
-   const [googleId, setgoogleId] = useState<any>();
+  // const [googleId, setgoogleId] = useState<any>();
   
   const navigate = useNavigate()
 
@@ -30,12 +30,14 @@ const TexteditorPage = () => {
     const fetchId = async () => {
         try{
           if(localStorage.getItem('googleId')){
-              setgoogleId(localStorage.getItem('googleId'))
+              var googleId =localStorage.getItem('googleId')
+              // setgoogleId(localStorage.getItem('googleId'))
             console.log('No id redirecting to login...',localStorage.getItem('googleId'));
             }
           else{
             if(Cookies.get('googleId')){
-              setgoogleId(Cookies.get('googleId'))  
+              var googleId = Cookies.get('googleId')
+              //setgoogleId(Cookies.get('googleId'))  
              console.log('No id redirecting to login...',Cookies.get('googleId'));
             }
               else{
