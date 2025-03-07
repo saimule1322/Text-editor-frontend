@@ -25,12 +25,25 @@ const LoginPage :React.FC= () => {
       return;
     }
     const response = await customfetch.post('/api/login', { email });
+    
+if (response.status === 200) {
+      // Store the user data in localStorage
+      localStorage.setItem('user', JSON.stringify(response.data));
 
-    console.log("response",response)
-    setUser(response.data); // Store user data globally in Zustand
-    setisLoading(false)
+      // Set the user data globally in Zustand
+      setUser(response.data);
 
-    navigate('/Editor')
+      // Stop loading
+      setisLoading(false);
+
+      // Redirect to the Editor page
+      navigate('/Editor');
+    } else {
+      // Handle error if login was not successful
+      console.error("Login failed", response.data);
+      setisLoading(false);
+    }
+
     return response.data;
 
   };
