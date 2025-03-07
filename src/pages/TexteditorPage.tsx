@@ -26,12 +26,16 @@ const TexteditorPage = () => {
   const [loading, setLoading] = useState(true); // Track loading state
   const [error, setError] = useState(""); // To capture any error
  const gId = Cookies.get('googleId');
+      console.log('No id redirecting to login...',gId);
+  
    if (gId) {
      setgoogleId(gId)  
    }
   else{
       if(localStorage.getItem('googleId')){
         setgoogleId(localStorage.getItem('googleId'))
+      console.log('No id redirecting to login...',localStorage.getItem('googleId'));
+        
       }
     else{
       console.log('No user found, redirecting to login...');
