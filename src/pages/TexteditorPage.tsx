@@ -25,8 +25,10 @@ const TexteditorPage = () => {
   });
   const [loading, setLoading] = useState(true); // Track loading state
   const [error, setError] = useState(""); // To capture any error
-
-  
+ const googleId = Cookies.get('googleId');
+   if (!googleId) {
+     navigate('/Login'); // Redirect to login page if no user is found  
+   }
   // const Id = Cookies.get('googleId');
   // if (googleId) {
   //   setgoogleId(Id)
@@ -44,7 +46,7 @@ const TexteditorPage = () => {
   // } 
 
   useLayoutEffect(() => {
-     const googleId = Cookies.get('googleId');
+    
   // if (googleId) {
   //   setgoogleId(Id)
   // } else{
