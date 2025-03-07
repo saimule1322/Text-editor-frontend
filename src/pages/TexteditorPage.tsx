@@ -29,13 +29,29 @@ const TexteditorPage = () => {
   // } 
 
 const users = localStorage.getItem('user'); // This can be 'string | null'
-  const googleId = users.googleId; // 'user' is guaranteed to be a string at this point
-if (googleId) {
-  console.log('Logged in user:', googleId);
-} else {
-  navigate('/Login');
-}
+  
+//   const googleId = users.googleId; // 'user' is guaranteed to be a string at this point
+// if (googleId) {
+//   console.log('Logged in user:', googleId);
+// } else {
+//   navigate('/Login');
+// }
+  
+ if (users) {
+      // Parse the user string into an object
+      const parsedUser = JSON.parse(users); // parsedUser is now an object
 
+      // Check if 'googleId' exists on the parsed user object
+      if (parsedUser && parsedUser.googleId) {
+        console.log('Google ID:', parsedUser.googleId);
+         const googleId = parsedUser.googleId
+      } else {
+        console.log('Google ID not found');
+      }
+    } else {
+      console.log('No user found, redirecting to login...');
+      navigate('/Login'); // Redirect to login if no user is found
+    }
 
   useLayoutEffect(() => {
     console.log("cookie",googleId)
