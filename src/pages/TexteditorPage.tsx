@@ -29,10 +29,8 @@ const TexteditorPage = () => {
   // } 
 
 const user = localStorage.getItem('user'); // This can be 'string | null'
-  console.log("google",googleId)
-
-if (user) {
   const googleId = user.googleId; // 'user' is guaranteed to be a string at this point
+if (googleId) {
   console.log('Logged in user:', googleId);
 } else {
   navigate('/Login');
