@@ -25,24 +25,31 @@ const TexteditorPage = () => {
   });
   const [loading, setLoading] = useState(true); // Track loading state
   const [error, setError] = useState(""); // To capture any error
- const gId = Cookies.get('googleId');
-      console.log('No id redirecting to login...',gId);
   
-   if (gId) {
-     setgoogleId(gId)  
-   }
-  else{
-      if(localStorage.getItem('googleId')){
-        setgoogleId(localStorage.getItem('googleId'))
-      console.log('No id redirecting to login...',localStorage.getItem('googleId'));
-        
-      }
-    else{
+  useLayoutEffect(() => {
+    const fetchId = async () => {
+        try{
+          if(localStorage.getItem('googleId')){
+              setgoogleId(localStorage.getItem('googleId'))
+            console.log('No id redirecting to login...',localStorage.getItem('googleId'));
+            }
+          else{
+            if(Cookies.get('googleId')){
+              setgoogleId(Cookies.get('googleId'))  
+             console.log('No id redirecting to login...',Cookies.get('googleId'));
+            }
+              else{
       console.log('No user found, redirecting to login...');
        navigate('/Login'); // Redirect to login page if no user is found
     }
   }
-    
+    }
+      catch (error) {
+        setError("Failed to fetch user data.");
+        console.error("Error fetching user:", error);
+      }
+    fetchId()
+  }
   // const Id = Cookies.get('googleId');
   // if (googleId) {
   //   setgoogleId(Id)
