@@ -28,18 +28,13 @@ const TexteditorPage = () => {
   //   navigate('/Login')
   // } 
 
-const users = localStorage.getItem('user'); // This can be 'string | null'
+const users = JSON.parse(localStorage.getItem('user')); // This can be 'string | null'
   
-if (users) {
-      const parsedUser = JSON.parse(users); // Parse user data from JSON
 
-      const googleId = parsedUser?.googleId;
+      const googleId = users?.googleId;
 
       if (googleId) {
         console.log('Google ID:', googleId);
-      } else {
-        console.log('No Google ID found');
-      }
     } else {
       console.log('No user found, redirecting to login...');
       navigate('/Login'); // Redirect to login page if no user is found
