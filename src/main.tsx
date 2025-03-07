@@ -1,5 +1,5 @@
 declare module 'file-saver';
-declare module 'js-cookie';
+//declare module 'js-cookie';
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
