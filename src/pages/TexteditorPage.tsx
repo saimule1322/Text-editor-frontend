@@ -28,8 +28,8 @@ const TexteditorPage = () => {
   //   navigate('/Login')
   // } 
 
-const user = localStorage.getItem('user'); // This can be 'string | null'
-  const googleId = user.googleId; // 'user' is guaranteed to be a string at this point
+const users = localStorage.getItem('user'); // This can be 'string | null'
+  const googleId = users.googleId; // 'user' is guaranteed to be a string at this point
 if (googleId) {
   console.log('Logged in user:', googleId);
 } else {
