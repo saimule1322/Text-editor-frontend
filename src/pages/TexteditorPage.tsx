@@ -13,6 +13,8 @@ const TexteditorPage = () => {
   const [files, setFiles] = useState<any[]>([]);
   const [title, setHeading] = useState("");
   const [saveTriggered, setSaveTriggered] = useState(false);
+  const [logged, setLogged] = useState(false);
+  
   const [googleId, setgoogleId] = useState<any>(localStorage.getItem('googleId'));
   
   const navigate = useNavigate()
@@ -33,8 +35,11 @@ const TexteditorPage = () => {
        const Ids = localStorage.getItem('googleId'); // This can be 'string | null'
     
     if (Ids) {
+      if(!logged){
         setgoogleId(Ids)
         console.log('Google ID:', Ids);
+        setLogged(true)
+      }
     } else {
       console.log('No user found, redirecting to login...');
       navigate('/Login'); // Redirect to login page if no user is found
