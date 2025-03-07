@@ -10,7 +10,7 @@ const LoginPage :React.FC= () => {
   const navigate = useNavigate(); // Use navigate for redirection
   const setUser = useAuthStore((state) => state.setUser); // Access Zustand setter
 
-  const URL = import.meta.env.VITE_BACKEND_URL || http://localhost:5000,
+  const URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
 
   const loginWithGoogle = () => {
     window.location.href = `${URL}/auth/google`;
