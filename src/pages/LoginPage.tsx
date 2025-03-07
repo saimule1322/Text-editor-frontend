@@ -10,9 +10,10 @@ const LoginPage :React.FC= () => {
   const navigate = useNavigate(); // Use navigate for redirection
   const setUser = useAuthStore((state) => state.setUser); // Access Zustand setter
 
+  const URL = import.meta.env.VITE_BACKEND_URL || http://localhost:5000
 
   const loginWithGoogle = () => {
-    window.location.href = "https://text-editor-backend-7dv7.onrender.com/auth/google";
+    window.location.href = `${URL}/auth/google`;
   };
 
  
