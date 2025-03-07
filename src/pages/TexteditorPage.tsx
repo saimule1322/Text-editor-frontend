@@ -39,17 +39,18 @@ const TexteditorPage = () => {
              console.log('No id redirecting to login...',Cookies.get('googleId'));
             }
               else{
-      console.log('No user found, redirecting to login...');
-       navigate('/Login'); // Redirect to login page if no user is found
-    }
-  }
-    }
+            console.log('No user found, redirecting to login...');
+             navigate('/Login'); // Redirect to login page if no user is found
+          }
+          }
+        }
       catch (error) {
         setError("Failed to fetch user data.");
         console.error("Error fetching user:", error);
       }
     fetchId()
   }
+  });
   // const Id = Cookies.get('googleId');
   // if (googleId) {
   //   setgoogleId(Id)
