@@ -13,7 +13,7 @@ const TexteditorPage = () => {
   const [files, setFiles] = useState<any[]>([]);
   const [title, setHeading] = useState("");
   const [saveTriggered, setSaveTriggered] = useState(false);
-  const [googleId, setgoogleId] = useState("");
+  const [googleId, setgoogleId] = useState();
   
   const navigate = useNavigate()
 
