@@ -23,10 +23,20 @@ const TexteditorPage = () => {
   });
   const [loading, setLoading] = useState(true); // Track loading state
   const [error, setError] = useState(""); // To capture any error
-  const googleId = Cookies.get('googleId');
-  if (!googleId) {
-    navigate('/Login')
-  } 
+  // const googleId = Cookies.get('googleId');
+  // if (!googleId) {
+  //   navigate('/Login')
+  // } 
+
+  const googleId = JSON.parse(localStorage.getItem('user'));
+
+if (!googleId) {
+  navigate('/Login');
+} else {
+  // Optionally, you can use the user data for something (like user profile or settings)
+  console.log('User is logged in:', user);
+}
+
 
   useLayoutEffect(() => {
     console.log("cookie",googleId)
